@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<!-- Contact Section -->
+<div class="w3-content w3-container w3-padding-64" style="margin-top:80px;">
+    <h3 class="w3-center w3-wide">CONTACT US</h3>
+    <p class="w3-center"><em>We'd love to hear from you!</em></p>
+
+    <div class="w3-row w3-padding-32 w3-section">
+        <div class="w3-col m4 w3-container">
+            <!-- Contact Info -->
+            <div class="w3-large contact-item">
+                <img src="/static/icons/pin.png" class="contact-icon" alt="Location icon">
+                <span class="contact-text"><a href="#map">{{contact_address}}</a></span>
+            </div>
+            
+            <div class="w3-large contact-item">
+                <img src="/static/icons/phone.png" class="contact-icon" alt="Phone icon">
+                <span class="contact-text">Phone: {{contact_phone}}</span>
+            </div>
+            
+            <div class="w3-large contact-item">
+                <img src="/static/icons/mail.png" class="contact-icon" alt="Email icon">
+                <span class="contact-text">Email: {{contact_email}}</span>
+            </div>
+        </div>
+        
+        <div class="w3-col m8 w3-panel">
+            <div class="w3-large contact-item">
+                <img src="/static/icons/msg.png" class="contact-icon" alt="Message icon">
+                <span class="contact-text">Send us a message:</span>
+            </div>
+            
+            <!-- Contact Form -->
+            <form action="/contact" method="post" target="_blank">
+                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                    <div class="w3-half">
+                        <input class="w3-input w3-border" type="text" placeholder="Name" required name="name">
+                    </div>
+                    <div class="w3-half">
+                        <input class="w3-input w3-border" type="email" placeholder="Email" required name="email">
+                    </div>
+                </div>
+                <input class="w3-input w3-border" type="text" placeholder="Subject" required name="subject">
+                <textarea class="w3-input w3-border" placeholder="Message" required name="message" rows="6"></textarea>
+                <button class="w3-button w3-blue w3-right w3-section" type="submit">
+                    <img src="/static/icons/send.png" width="25" alt="Send icon" style="margin-right: 8px;">Send Message
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
