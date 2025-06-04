@@ -34,8 +34,8 @@ def contact():
         return render_template("index.html")
     else:
         return render_template("contact.html", 
-                            contact_latitude=os.getenv("GEOLOCATION_LATITUDE"), 
-                            contact_longitude=os.getenv("GEOLOCATION LONGITUDE"),
+                            geolocation_latitude=os.getenv("GEOLOCATION_LATITUDE"), 
+                            geolocation_longitude=os.getenv("GEOLOCATION LONGITUDE"),
                             )
 
 if __name__ == "__main__":
