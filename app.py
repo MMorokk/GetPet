@@ -1,6 +1,13 @@
 import os
-from flask import Flask
 from dotenv import load_dotenv
+from flask import (
+    Flask,
+    render_template,
+    url_for,
+    request,
+)
+
+
 
 load_dotenv()
 
@@ -10,9 +17,26 @@ app = Flask(__name__)
 @app.context_processor
 def inject_env_vars():
     return {
-        'website_title': os.getenv('WEBSITE_TITLE', 'GetPet'),
+        "website_title": os.getenv("WEBSITE_TITLE", "GetPet"),
+        "please_contact": os.getenv("PLEASE_CONTACT", False),
+        "contact_address": os.getenv("CONTACT_ADDRESS", "Chicago, US"),
+        "contact_phone": os.getenv("CONTACT_PHONE", "+380999123921"),
+        "contact_email": os.getenv("CONTACT_EMAIL", "mail@example.com"),
     }
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def index():
+    return render_template("index.html")
+
+@app.route("/contact", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        return render_template("index.html")
+    else:
+        return render_template("contact.html", 
+                            contact_latitude=os.getenv("GEOLOCATION_LATITUDE"), 
+                            contact_longitude=os.getenv("GEOLOCATION LONGITUDE"),
+                            )
+
+if __name__ == "__main__":
+    app.run()
