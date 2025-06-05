@@ -11,17 +11,23 @@
             <!-- Contact Info -->
             <div class="w3-large contact-item">
                 <img src="/static/icons/pin.png" class="contact-icon" alt="Location icon">
-                <span class="contact-text"><a href="#map">{{contact_address}}</a></span>
+                <span class="contact-text">
+                    {% if geolocation_latitude and geolocation_longitude %}
+                        <a href="https://www.google.com/maps/search/?api=1&query={{geolocation_latitude}}%2C{{geolocation_longitude}}" target="_blank" rel="noopener noreferrer">{{contact_address}}</a>
+                    {% else %}
+                        {{contact_address}} second
+                    {% endif %}
+                </span>
             </div>
             
             <div class="w3-large contact-item">
                 <img src="/static/icons/phone.png" class="contact-icon" alt="Phone icon">
-                <span class="contact-text">Phone: {{contact_phone}}</span>
+                <span class="contact-text">Phone: <a href="tel:{{contact_phone}}">{{contact_phone}}</a></span>
             </div>
             
             <div class="w3-large contact-item">
                 <img src="/static/icons/mail.png" class="contact-icon" alt="Email icon">
-                <span class="contact-text">Email: {{contact_email}}</span>
+                <span class="contact-text">Email: <a href="mailto:{{contact_email}}">{{contact_email}}</a></span>
             </div>
         </div>
         
