@@ -15,7 +15,7 @@
                     {% if geolocation_latitude and geolocation_longitude %}
                         <a href="https://www.google.com/maps/search/?api=1&query={{geolocation_latitude}}%2C{{geolocation_longitude}}" target="_blank" rel="noopener noreferrer">{{contact_address}}</a>
                     {% else %}
-                        {{contact_address}} second
+                        {{contact_address}}
                     {% endif %}
                 </span>
             </div>
