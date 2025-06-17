@@ -1,17 +1,21 @@
 import os
 from dotenv import load_dotenv
+from markupsafe import escape
 from flask import (
     Flask,
     render_template,
     url_for,
     request,
 )
-
-
+from flask_minify import minify
 
 load_dotenv()
 
 app = Flask(__name__)
+
+# Automatically minify html, css and js to 
+# speed up loading times and save bandwith
+minify(app=app, html=True, js=True, cssless=True)
 
 # Make environment variables available to all templates
 @app.context_processor
