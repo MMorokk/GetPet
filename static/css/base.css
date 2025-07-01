@@ -1,0 +1,237 @@
+/* === VARIABLES CSS === */
+:root {
+  /* === COLORS FOR LIGHT THEME === */
+  --base: #faf4ed;
+  --surface: #fffaf3;
+  --overlay: #f2e9e1;
+  --muted: #9893a5;
+  --subtle: #797593;
+  --text: #575279;
+  --love: #b4637a;
+  --gold: #ea9d34;
+  --rose: #d7827e;
+  --pine: #286983;
+  --foam: #56949f;
+  --iris: #907aa9;
+  --highlight-low: #f4ede8;
+  --highlight-med: #dfdad9;
+  --highlight-high: #cecacd;
+  --shadow: rgba(0, 0, 0, 0.15);
+
+  /* === FLUID FONT SIZES === */
+  /* Generated using: https://www.fluid-type-scale.com/ */
+  --fs-sm: clamp(0.8rem, 0.12vi + 0.75rem, 0.89rem);
+  --fs-base: clamp(1rem, 0.25vi + 0.89rem, 1.19rem);
+  --fs-md: clamp(1.25rem, 0.44vi + 1.06rem, 1.58rem);
+  --fs-lg: clamp(1.56rem, 0.72vi + 1.25rem, 2.11rem);
+  --fs-xl: clamp(1.95rem, 1.13vi + 1.46rem, 2.81rem);
+  --fs-xxl: clamp(2.44rem, 1.72vi + 1.69rem, 3.75rem);
+  --fs-xxxl: clamp(3.05rem, 2.55vi + 1.94rem, 5rem);
+}
+/* === COLORS FOR DARK THEME === */
+.darkmode {
+  --base: #232136;
+  --surface: #2a273f;
+  --overlay: #393552;
+  --muted: #6e6a86;
+  --subtle: #908caa;
+  --text: #e0def4;
+  --love: #eb6f92;
+  --gold: #f6c177;
+  --rose: #ea9a97;
+  --pine: #3e8fb0;
+  --foam: #9ccfd8;
+  --iris: #c4a7e7;
+  --highlight-low: #2a283e;
+  --highlight-med: #44415a;
+  --highlight-high: #56526e;
+}
+/* === BASICS === */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, Arial;
+  box-sizing: border-box;
+  transition: background-color 0.15s;
+}
+
+body {
+  background-color: var(--base);
+  padding-top: clamp(3rem, 6vh, 10rem);
+  height: 1000px;
+}
+
+svg {
+  fill: var(--text);
+}
+
+/* === HEADER === */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--surface);
+  height: clamp(3rem, 6vh, 10rem);
+  box-shadow: 0.31rem 0.31rem 0.62rem var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  font-size: var(--fs-base);
+}
+
+#nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.nav__link {
+  margin: 0 0.5rem;
+  display: flex;
+  text-decoration: none;
+  padding: 1rem;
+  color: var(--text);
+  border-radius: 1rem;
+  transition: 0.15s;
+}
+
+.nav__link:hover {
+  background-color: var(--overlay);
+}
+
+.nav__link:active {
+  box-shadow: inset 0.31rem 0.31rem 0.31rem var(--shadow);
+}
+
+.debug-item {
+  height: 100%;
+  width: 100%;
+  background-color: var(--rose);
+  color: var(--text);
+}
+
+#open-sidebar-button {
+  display: none;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  height: 3.125rem;
+  width: 3.125rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--base);
+  border: none;
+  border-radius: 50%;
+}
+
+#theme-switch {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 1rem;
+  background-color: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  transition: 0.15s;
+}
+
+#theme-switch:hover,
+#open-sidebar-button:hover {
+  background-color: var(--overlay);
+}
+
+#theme-switch:active,
+#open-sidebar-button:active {
+  box-shadow: inset 0.31rem 0.31rem 0.31rem var(--shadow);
+}
+
+#theme-switch svg:last-child {
+  display: none;
+}
+
+#close-sidebar-button {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--overlay);
+}
+
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+
+
+/* === RESPONSIVENESS === */
+@media screen and (max-width: 700px), screen and (max-device-width: 700px) {
+  #logo-placeholder {
+    display: none;
+  }
+
+  header {
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    background-color: var(--overlay);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    left: auto;
+    width: min(15em, 100%);
+    box-shadow: -0.31rem 0.31rem 0.31rem var(--shadow);
+    transition: right 300ms ease-out;
+  }
+
+  #close-sidebar-button {
+    display: flex;
+  }
+
+  .header-nav {
+    margin-top: 1.3rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .header-nav ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  #open-sidebar-button {
+    display: flex;
+  }
+
+  #theme-switch {
+    margin-top: auto;
+    margin-left: auto;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+  }
+
+  #close-sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background-color: var(--shadow);
+  }
+
+  header.show {
+    right: 0;
+  }
+
+  header.show ~ #close-sidebar-overlay {
+    display: block;
+  }
+}
