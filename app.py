@@ -32,6 +32,10 @@ def inject_env_vars():
 def index():
     return render_template("index.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
@@ -41,6 +45,10 @@ def contact():
                             geolocation_latitude=os.getenv("GEOLOCATION_LATITUDE"), 
                             geolocation_longitude=os.getenv("GEOLOCATION_LONGITUDE"),
                             )
+
+@app.route("/pets")
+def pets():
+    return render_template("pets.html")
 
 if __name__ == "__main__":
     app.run()

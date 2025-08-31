@@ -1,6 +1,15 @@
 {% extends "layout.html" %}
 
+{% block head %}
+<link rel="stylesheet" href="/static/css/index.css">
+{% endblock %}
 
 {% block main%}
-Hello world!
+<div class="bg"></div>
+<div class="main_container">
+  <h1 class="main_header">Lorem Ipsum</h1>
+  <p class="main_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <a href="/pets" class="list_btn">See Our Pets!</a>
+</div>
+
 {% endblock %}
