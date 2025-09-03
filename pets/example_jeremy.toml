@@ -1,0 +1,14 @@
+[general]
+name = "Jeremy"
+description = "Jeremy is a very good boy!"
+character = "calm"
+breed = "German Shepard"
+date_of_birth = 2025-08-31 # YYYY-MM-DD
+price = 200
+type = "dog" # cat/dog/turtle/parrot etc.
+sex = "male" # male/female
+hidden = false
+
+[appearance]
+color = "black"
+size = "big" # big/small/medium
