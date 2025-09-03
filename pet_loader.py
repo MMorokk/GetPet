@@ -29,8 +29,9 @@ class Pet:
     self.size = size
     self.is_hidden = is_hidden
 
-'''Gets directory with toml templates and returns list of pet objects'''
+
 def load_pets_from_directory(pets_dir):
+  '''Gets directory with toml templates and returns list of pet objects'''
   pets_list=[]
   try:
     # For every file in pets_dir open it as toml
