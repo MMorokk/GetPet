@@ -1,4 +1,5 @@
 import os
+import pet_loader
 from dotenv import load_dotenv
 from markupsafe import escape
 from flask import (
