@@ -1,6 +1,8 @@
 [general]
 name = "Jeremy"
-description = "Jeremy is a very good boy!"
+description = """
+Jeremy is a very good boy!
+""" # You can use markdown in description
 character = "calm"
 breed = "German Shepard"
 date_of_birth = 2025-08-31 # YYYY-MM-DD

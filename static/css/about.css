@@ -26,6 +26,12 @@ main {
 }
 
 .main_text {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--fs-base);
+}
+
+.main_text p {
   display: inline;
   font-size: var(--fs-base);
   text-align: center;
